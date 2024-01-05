@@ -1,0 +1,142 @@
+Script started on 2023-11-28 04:32:45+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="79" LINES="45"]
+[?2004h]0;kirkorsky@my-cs400-vm: ~/p2[01;32mkirkorsky@my-cs400-vm[00m:[01;34m~/p2[00m$ git status
+[?2004lOn branch frontend
+Your branch is ahead of 'origin/frontend' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31mlog[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+[?2004h]0;kirkorsky@my-cs400-vm: ~/p2[01;32mkirkorsky@my-cs400-vm[00m:[01;34m~/p2[00m$ git log-1[K[K 0[K-1
+[?2004l[?1h=[33mcommit 545933da063ca8fb44e55beb3de7a3c3dbbc2db5[m[33m ([m[1;36mHEAD -> [m[1;32mfrontend[m[33m)[m[m
+Author: Max Kirkorsky <kirkorsky@wisc.edu>[m
+Date:   Tue Nov 28 04:32:31 2023 +0000[m
+[m
+    Commit before log[m
+[K[?1l>[?2004h]0;kirkorsky@my-cs400-vm: ~/p2[01;32mkirkorsky@my-cs400-vm[00m:[01;34m~/p2[00m$ make clean
+[?2004lrm *.class
+[?2004h]0;kirkorsky@my-cs400-vm: ~/p2[01;32mkirkorsky@my-cs400-vm[00m:[01;34m~/p2[00m$ ls
+[?2004lBackendInterface.java    FrontendDeveloperTests.java  MapADT.java          log
+BackendPlaceholder.java  FrontendInterface.java       PathInterface.java
+BaseGraph.java           GraphADT.java                PlaceholderMap.java
+Frontend.java            Makefile                     flights.dot
+[?2004h]0;kirkorsky@my-cs400-vm: ~/p2[01;32mkirkorsky@my-cs400-vm[00m:[01;34m~/p2[00m$ make runFDTests 
+[?2004ljavac BackendPlaceholder.java
+javac Frontend.java
+javac -cp ../junit5.jar:. FrontendDeveloperTests.java
+java -jar ../junit5.jar --class-path=. --select-class=FrontendDeveloperTests
+
+Thanks for using JUnit! Support its development at https://junit.org/sponsoring
+
+[36m╷[0m
+[36m├─[0m [36mJUnit Jupiter[0m [32m✔[0m
+[36m│  └─[0m [36mFrontendDeveloperTests[0m [32m✔[0m
+[36m│     ├─[0m [31mtest1()[0m [31m✘[0m [31mCannot invoke "String.getBytes()" because "<parameter1>" is null[0m
+[36m│     ├─[0m [31mtest2()[0m [31m✘[0m [31mexpected: <Option not valid> but was: <>[0m
+[36m│     ├─[0m [31mtest3()[0m [31m✘[0m [31mexpected: <Welcome to Flight Router!> but was: <Welcome to Flight Router![0m
+[36m│     │     [0m[31m   >[0m
+[36m│     ├─[0m [31mtest4()[0m [31m✘[0m [31mexpected: <Number of airports: #[0m
+[36m│     │     [0m[31m   Number of flights: #[0m
+[36m│     │     [0m[31m   Number of miles: #> but was: <[0m
+[36m│     │     [0m[31m   >[0m
+[36m│     └─[0m [31mtest5()[0m [31m✘[0m [31mexpected: <The file path for the file is incorrect> but was: <>[0m
+[36m├─[0m [36mJUnit Vintage[0m [32m✔[0m
+[36m└─[0m [36mJUnit Platform Suite[0m [32m✔[0m
+
+Failures (5):
+  JUnit Jupiter:FrontendDeveloperTests:test1()
+    MethodSource [className = 'FrontendDeveloperTests', methodName = 'test1', methodParameterTypes = '']
+    => java.lang.NullPointerException: Cannot invoke "String.getBytes()" because "<parameter1>" is null
+       TextUITester.<init>(FrontendDeveloperTests.java:167)
+       FrontendDeveloperTests.test1(FrontendDeveloperTests.java:22)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       java.base/java.lang.reflect.Method.invoke(Method.java:568)
+       org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+       org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+       org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+       org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+       [...]
+  JUnit Jupiter:FrontendDeveloperTests:test2()
+    MethodSource [className = 'FrontendDeveloperTests', methodName = 'test2', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: expected: <Option not valid> but was: <>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1142)
+       FrontendDeveloperTests.test2(FrontendDeveloperTests.java:40)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       [...]
+  JUnit Jupiter:FrontendDeveloperTests:test3()
+    MethodSource [className = 'FrontendDeveloperTests', methodName = 'test3', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: expected: <Welcome to Flight Router!> but was: <Welcome to Flight Router!
+>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1142)
+       FrontendDeveloperTests.test3(FrontendDeveloperTests.java:55)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       [...]
+  JUnit Jupiter:FrontendDeveloperTests:test4()
+    MethodSource [className = 'FrontendDeveloperTests', methodName = 'test4', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: expected: <Number of airports: #
+Number of flights: #
+Number of miles: #> but was: <
+>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1142)
+       FrontendDeveloperTests.test4(FrontendDeveloperTests.java:70)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       [...]
+  JUnit Jupiter:FrontendDeveloperTests:test5()
+    MethodSource [className = 'FrontendDeveloperTests', methodName = 'test5', methodParameterTypes = '']
+    => org.opentest4j.AssertionFailedError: expected: <The file path for the file is incorrect> but was: <>
+       org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+       org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+       org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+       org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+       org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1142)
+       FrontendDeveloperTests.test5(FrontendDeveloperTests.java:85)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+       java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+       java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+       [...]
+
+Test run finished after 179 ms
+[         4 containers found      ]
+[         0 containers skipped    ]
+[         4 containers started    ]
+[         0 containers aborted    ]
+[         4 containers successful ]
+[         0 containers failed     ]
+[         5 tests found           ]
+[         0 tests skipped         ]
+[         5 tests started         ]
+[         0 tests aborted         ]
+[         0 tests successful      ]
+[         5 tests failed          ]
+
+make: *** [Makefile:5: runFDTests] Error 1
+[?2004h]0;kirkorsky@my-cs400-vm: ~/p2[01;32mkirkorsky@my-cs400-vm[00m:[01;34m~/p2[00m$ exit
+[?2004lexit
+
+Script done on 2023-11-28 04:33:33+00:00 [COMMAND_EXIT_CODE="2"]
